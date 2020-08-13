@@ -1,0 +1,45 @@
+server:
+  port: 8090
+  
+#logging:
+#  level:
+#    root: warn
+#    org.springframework.web: error
+#    org.springframework.boot.autoconfigure: error
+#    org.hibernate: error
+#    es.fantasymanager: debug
+  
+spring:
+  devtools:
+    restart:
+      exclude: logs/**
+      additional-exclude: logs/**
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.1.123:3306/fantasymanager?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: fantasymanager
+    password: fantasymanager
+  jpa:
+#    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate.ddl-auto: update
+    generate-ddl: true
+#    hibernate:
+#      naming:
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: false
+    
+    
+scheduled:
+  parser:
+    statistics: 0 0 8 * * ? * # 8am
+    news: 0 0 0/1 * * ? * # cada 1h
+    transactions: 0 0 3/1 * * ? * # cada 1h   
+    
+telegram:
+  token: 714506880:AAEQrW0ifef2fDZzlFtlcHSuWHflNaIWN8I
+  #chatId: fantasyManagerChannel
+  newsChatId: -352055855
+  transactionsChatId: -360686582
+  tradesChatId: -360686582
+ 
+      
